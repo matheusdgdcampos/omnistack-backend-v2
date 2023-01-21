@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+input CreateIncidentDTO {
+  description: String!
+  ongId: String!
+  title: String!
+  value: Int!
+}
+
+input CreateOngDTO {
+  city: String!
+  email: String!
+  name: String!
+  uf: String!
+  whatsapp: String!
+}
+
+type IncidentsGQLModel {
+  description: String!
+  id: String!
+  ongId: String!
+  title: String!
+  value: Int!
+}
+
+type IncidentsGQLModelEdge {
+  cursor: String!
+  node: IncidentsGQLModel!
+}
+
+type Mutation {
+  createIncident(args: CreateIncidentDTO!): IncidentsGQLModel!
+  createOng(args: CreateOngDTO!): String!
+  deleteIncident(incidentId: String!): String!
+}
+
+type OngGQLModel {
+  city: String!
+  email: String!
+  id: String!
+  name: String!
+  uf: String!
+  whatsapp: String!
+}
+
+type PaginatedIncidents {
+  edges: [IncidentsGQLModelEdge!]
+  hasNextPage: Boolean!
+  nodes: [IncidentsGQLModel!]
+  totalCount: Int!
+}
+
+type Query {
+  findAllIncidents(first: Int!, offset: Int!): PaginatedIncidents!
+  getAllOngs: [OngGQLModel!]!
+}
